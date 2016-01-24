@@ -1,6 +1,6 @@
 <?php
 
-namespace Netcode\DnsBundle\Exception;
+namespace Netcode\Dns\Exception;
 
 /**
  * Exception when a non valid FQDN is used.

@@ -1,10 +1,10 @@
 <?php
 
-namespace Netcode\DnsBundle\Service;
+namespace Netcode\Dns\Service;
 
-use Netcode\DnsBundle\Exception\SoaRequiredException;
-use Netcode\DnsBundle\Modal\Records\SoaInterface;
-use Netcode\DnsBundle\Modal\ZoneInterface;
+use Netcode\Dns\Exception\SoaRequiredException;
+use Netcode\Dns\Modal\Records\SoaInterface;
+use Netcode\Dns\Modal\ZoneInterface;
 
 /**
  * Service used to generate a string used to write a DNS zone.

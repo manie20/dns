@@ -1,8 +1,8 @@
 <?php
 
-namespace Netcode\DnsBundle\Modal;
+namespace Netcode\Dns\Modal;
 
-use Netcode\DnsBundle\Exception\InvalidEmailException;
+use Netcode\Dns\Exception\InvalidEmailException;
 
 /**
  * Email class used for within DNS.
@@ -102,7 +102,8 @@ class Email
         if (false === $this->isValidRegularEmail($emailAddress)) {
             throw new InvalidEmailException(
                 sprintf(
-                    'The e-mail address supplied (%s) is not a valid e-mail address. Did you mean the getRegularEmailFromDnsEmail method?',
+                    'The e-mail address supplied (%s) is not a valid e-mail address.
+                    Did you mean the getRegularEmailFromDnsEmail method?',
                     $emailAddress
                 )
             );
@@ -125,7 +126,8 @@ class Email
         if (false === $this->isValidDnsEmail($emailAddress)) {
             throw new InvalidEmailException(
                 sprintf(
-                    'The e-mail address supplied (%s) is not a valid DNS format. Did you mean the getDnsEmailFromRegularEmail method?',
+                    'The e-mail address supplied (%s) is not a valid DNS format.
+                    Did you mean the getDnsEmailFromRegularEmail method?',
                     $emailAddress
                 )
             );

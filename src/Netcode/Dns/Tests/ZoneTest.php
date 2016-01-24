@@ -1,9 +1,9 @@
 <?php
 
-namespace Netcode\DnsBundle\Tests;
+namespace Netcode\Dns\Tests;
 
-use Netcode\DnsBundle\Modal\Zone;
-use Netcode\DnsBundle\Modal\Records\Soa;
+use Netcode\Dns\Modal\Zone;
+use Netcode\Dns\Modal\Records\Soa;
 
 class ZoneTest extends PHPUnit_Framework_TestCase
 {

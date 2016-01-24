@@ -1,9 +1,9 @@
 <?php
 
-namespace Netcode\DnsBundle\Modal;
+namespace Netcode\Dns\Modal;
 
-use Netcode\DnsBundle\Modal\Records\RecordInterface;
-use Netcode\DnsBundle\Modal\Records\SoaInterface;
+use Netcode\Dns\Modal\Records\RecordInterface;
+use Netcode\Dns\Modal\Records\SoaInterface;
 
 /**
  * Zone is any distinct, contiguous portion of the domain name space in the Domain Name System (DNS) for which

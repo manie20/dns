@@ -1,8 +1,8 @@
 <?php
 
-namespace Netcode\DnsBundle\Modal\Records;
+namespace Netcode\Dns\Modal\Records;
 
-use \Netcode\DnsBundle\Modal\Domain;
+use \Netcode\Dns\Modal\Domain;
 
 /**
  * Define the functionality for the SOA (Start of Authority) record class for use in a zone.
@@ -15,7 +15,7 @@ interface SoaInterface
     /**
      * Set the toplevel domain for this zone. (example.com)
      *
-     * @param \Netcode\DnsBundle\Modal\Domain $domain
+     * @param \Netcode\Dns\Modal\Domain $domain
      *
      * @return SoaInterface $this
      */
@@ -24,7 +24,7 @@ interface SoaInterface
     /**
      * Get the zone name.
      *
-     * @return \Netcode\DnsBundle\Modal\Domain
+     * @return \Netcode\Dns\Modal\Domain
      */
     public function getName();
 
@@ -70,11 +70,11 @@ interface SoaInterface
     /**
      * Set Nameserver
      *
-     * Nameserver – ns.nameserver.com. – The nameserver is the server which holds the zone files. It can be either an
-     * external server in which case, the entire domain name must be specified followed by a dot. In case it is defined
-     * in this zone file, then it can be written as “ns” .
+     * Nameserver – ns.nameserver.com. – The nameserver is the server which holds the zone files.
+     * It can be either an external server in which case, the entire domain name must be specified followed by a dot.
+     * In case it is defined in this zone file, then it can be written as “ns” .
      *
-     * @param \Netcode\DnsBundle\Modal\Domain $nameserver
+     * @param \Netcode\Dns\Modal\Domain $nameserver
      *
      * @return SoaInterface $this
      */
@@ -83,7 +83,7 @@ interface SoaInterface
     /**
      * Get Nameserver.
      *
-     * @return \Netcode\DnsBundle\Modal\Domain
+     * @return \Netcode\Dns\Modal\Domain
      */
     public function getNameServer();
 
@@ -95,7 +95,7 @@ interface SoaInterface
      * root@ns.nameserver.com, but written as root.ns.nameserver.com .
      * And yes, remember to put the dot behind the domain name.
      *
-     * @param \Netcode\DnsBundle\Modal\Domain $emailAddress
+     * @param \Netcode\Dns\Modal\Domain $emailAddress
      *
      * @return SoaInterface $this
      */
@@ -104,7 +104,7 @@ interface SoaInterface
     /**
      * Get E-mail address.
      *
-     * @return \Netcode\DnsBundle\Modal\Domain
+     * @return \Netcode\Dns\Modal\Domain
      */
     public function getEmailAddress();
 
@@ -175,10 +175,10 @@ interface SoaInterface
     /**
      * Set Expiry.
      *
-     * Expiry – 1209600 – This is the time (in seconds) that a slave server will keep a cached zone file as valid, if
-     * it can’t contact the primary server. If this value were set to say 2 weeks ( in seconds), what it means is that
-     * a slave would still be able to give out domain information from its cached zone file for 2 weeks, without
-     * anyone knowing the difference. The recommended value is between 2 to 4 weeks.
+     * Expiry – 1209600 – This is the time (in seconds) that a slave server will keep a cached zone file as valid,
+     * if it can’t contact the primary server. If this value were set to say 2 weeks ( in seconds),
+     * what it means is that a slave would still be able to give out domain information from its cached zone file
+     * for 2 weeks, without anyone knowing the difference. The recommended value is between 2 to 4 weeks.
      *
      * @param int $seconds
      *

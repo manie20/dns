@@ -1,31 +1,45 @@
 <?php
 
-namespace Netcode\DnsBundle\Modal\Records;
+namespace Netcode\Dns\Modal\Records;
 
+/**
+ * BaseRecord handles the common functionality which is used for all different types of records.
+ */
 class BaseRecord implements RecordInterface
 {
+    /** @var string */
     protected $name;
 
+    /** @var RecordInterface */
     protected $type;
 
+    /** @var string */
     protected $content;
 
+    /** @var int */
     protected $ttl;
 
+    /** @var int */
     protected $priority;
 
     /**
-     * @inheritdoc
+     * Get class name for usage as type of record.
+     *
+     * @return string
      */
     public function __toString()
     {
         $reflect = new \ReflectionClass($this);
 
-        return $reflect->getShortName() ;
+        return $reflect->getShortName();
     }
 
     /**
-     * @inheritdoc
+     * Set record name.
+     *
+     * @param $name
+     *
+     * @return RecordInterface $this
      */
     public function setName($name)
     {
@@ -35,7 +49,9 @@ class BaseRecord implements RecordInterface
     }
 
     /**
-     * @inheritdoc
+     * Get record name.
+     *
+     * @return string
      */
     public function getName()
     {
@@ -43,7 +59,11 @@ class BaseRecord implements RecordInterface
     }
 
     /**
-     * @inheritdoc
+     * Set type of Zone record.
+     *
+     * @param RecordInterface $type
+     *
+     * @return RecordInterface $this
      */
     public function setType(RecordInterface $type)
     {
@@ -53,7 +73,9 @@ class BaseRecord implements RecordInterface
     }
 
     /**
-     * @inheritdoc
+     * Get type of record.
+     *
+     * @return RecordInterface
      */
     public function getType()
     {
@@ -61,7 +83,11 @@ class BaseRecord implements RecordInterface
     }
 
     /**
-     * @inheritdoc
+     * Set record content.
+     *
+     * @param string $content
+     *
+     * @return RecordInterface $this
      */
     public function setContent($content)
     {
@@ -71,7 +97,9 @@ class BaseRecord implements RecordInterface
     }
 
     /**
-     * @inheritdoc
+     * Get content for the record.
+     *
+     * @return string
      */
     public function getContent()
     {
@@ -79,7 +107,11 @@ class BaseRecord implements RecordInterface
     }
 
     /**
-     * @inheritdoc
+     * Set Time-To-Live in seconds.
+     *
+     * @param integer $seconds
+     *
+     * @return RecordInterface $this
      */
     public function setTTL($seconds)
     {
@@ -89,7 +121,9 @@ class BaseRecord implements RecordInterface
     }
 
     /**
-     * @inheritdoc
+     * Get Time-To-Live for the record.
+     *
+     * @return integer
      */
     public function getTTL()
     {
@@ -97,7 +131,11 @@ class BaseRecord implements RecordInterface
     }
 
     /**
-     * @inheritdoc
+     * Set the record priority.
+     *
+     * @param null|integer
+     *
+     * @return RecordInterface $this
      */
     public function setPriority($priority)
     {
@@ -107,7 +145,9 @@ class BaseRecord implements RecordInterface
     }
 
     /**
-     * @inheritdoc
+     * Get the record priority.
+     *
+     * @return null|integer
      */
     public function getPriority()
     {
@@ -115,7 +155,9 @@ class BaseRecord implements RecordInterface
     }
 
     /**
-     * @inheritdoc
+     * Get the unique identifier for the record, based on name and type.
+     *
+     * @return string
      */
     public function getKey()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Netcode\DnsBundle\Modal\Records;
+namespace Netcode\Dns\Modal\Records;
 
 class NAPTR extends BaseRecord
 {

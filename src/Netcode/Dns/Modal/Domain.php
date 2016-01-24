@@ -1,12 +1,13 @@
 <?php
 
-namespace Netcode\DnsBundle\Modal;
+namespace Netcode\Dns\Modal;
 
-use Netcode\DnsBundle\Exception\InvalidDomainException;
+use Netcode\Dns\Exception\InvalidDomainException;
 
 /**
- * A fully qualified domain name (FQDN) is a domain name that specifies its exact location in the tree hierarchy of the Domain Name System (DNS).
- * A fully qualified domain name is distinguished by its lack of ambiguity: it can be interpreted only in one way.
+ * A fully qualified domain name (FQDN) is a domain name that specifies its exact location in the tree hierarchy of the
+ * Domain Name System (DNS). A fully qualified domain name is distinguished by its lack of ambiguity: it can be
+ * interpreted only in one way.
  */
 class Domain
 {
@@ -33,7 +34,9 @@ class Domain
     public function setDomainName($fqdn)
     {
         if (false === $this->validateDomainName($fqdn)) {
-            throw new InvalidDomainException('The domain: ' . $fqdn . ' is not a valid FQDN. Please set a valid DomainName on the Domain class.');
+            throw new InvalidDomainException(
+                'The domain: ' . $fqdn . ' is not a valid FQDN. Please set a valid DomainName on the Domain class.'
+            );
         }
 
         $this->domainName = $fqdn;

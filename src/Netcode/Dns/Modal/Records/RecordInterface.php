@@ -1,6 +1,6 @@
 <?php
 
-namespace Netcode\DnsBundle\Modal\Records;
+namespace Netcode\Dns\Modal\Records;
 
 /**
  * Define the default functionality a single DNS Zone record should contain.
