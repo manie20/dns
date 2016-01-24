@@ -1,5 +1,5 @@
 {
-  "name" : 'netcode/dns',
+  "name": "netcode/dns",
   "description" : 'A collection of classes and services to maintain a PHP class representation of a DNS zone file.',
   "authors": [
     {
@@ -7,13 +7,13 @@
       "email": "a.krijgsman@netcode.nl"
     }
   ],
-  "minimum-stability": "dev-master",
+  "license": "mit",
+  "autoload": {
+    "psr-4": {
+      "Netcode\\Dns": "src/"
+    }
+  },
   "require": {
     "php": ">=5.3.0"
-  },
-  "autoload": {
-    "psr-0" : {
-      "Netcode\\Dns" : "src"
-    }
   }
 }
