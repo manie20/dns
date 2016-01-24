@@ -1,5 +1,5 @@
 {
-  "name": "netcode/dns",
+  "name": "manie20/dns",
   "description" : 'A collection of classes and services to maintain a PHP class representation of a DNS zone file.',
   "authors": [
     {
