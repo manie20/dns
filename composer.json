@@ -1,6 +1,6 @@
 {
   "name": "manie20/dns",
-  "description" : 'A collection of classes and services to maintain a PHP class representation of a DNS zone file.',
+  "description" : "A collection of classes and services to maintain a PHP class representation of a DNS zone file.",
   "authors": [
     {
       "name": "Armand Krijgsman",
@@ -12,6 +12,6 @@
     "psr-0": { "": "src/" }
   },
   "require": {
-    "php": ">=5.3.0"
+    "php": ">=5.3.3"
   }
 }
