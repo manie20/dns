@@ -4,6 +4,7 @@ namespace Netcode\Dns\Modal;
 
 use Netcode\Dns\Modal\Records\RecordInterface;
 use Netcode\Dns\Modal\Records\SoaInterface;
+use Netcode\Dns\Service\ZoneFileService;
 
 /**
  * Zone is any distinct, contiguous portion of the domain name space in the Domain Name System (DNS) for which
@@ -16,6 +17,19 @@ class Zone implements ZoneInterface
 
     /** @var SoaInterface */
     protected $soa;
+
+    /**
+     * Print the serialized representation of a zone file.
+     *
+     * @return string
+     *
+     * @throws \Netcode\Dns\Exception\SoaRequiredException
+     */
+    public function __toString()
+    {
+        $zoneFileService = new ZoneFileService();
+        return $zoneFileService->getZoneText($this);
+    }
 
     /**
      * Add Record to zone.

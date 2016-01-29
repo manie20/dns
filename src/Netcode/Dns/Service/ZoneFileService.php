@@ -25,5 +25,24 @@ class ZoneFileService
         if (false === ($zone->getSoaRecord() instanceof SoaInterface)) {
             throw new SoaRequiredException('The zone file supplied does nog seem to have a valid SOA record.');
         }
+
+        return $this->getSoaMarkup($zone->getSoaRecord());
+    }
+
+    /**
+     * Get SOA record markup.
+     *
+     * @param SoaInterface $soaRecord
+     *
+     * @return string
+     */
+    private function getSoaMarkup(SoaInterface $soaRecord)
+    {
+        return sprintf(
+            '$TTL    %s' . "\n" .
+            '$ORIGIN %s' . "\n",
+            $soaRecord->getTtl(),
+            $soaRecord->getName()->getZonefileNotation()
+        );
     }
 }
