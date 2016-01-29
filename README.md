@@ -1,2 +1,2 @@
-# dns-library
-Modals and Services for mapping DNS Zone's and DNS records.
+# DNS Library
+This package contains modals and services used for mapping DNS Zone's and DNS records.
