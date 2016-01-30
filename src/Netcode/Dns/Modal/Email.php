@@ -37,6 +37,20 @@ class Email
     }
 
     /**
+     * Initiate E-mail object.
+     *
+     * @param $emailAddress
+     */
+    public function __construct($emailAddress)
+    {
+        if (true === $this->isValidDnsEmail($emailAddress)) {
+            $emailAddress = $this->getRegularEmailFromDnsEmail($emailAddress);
+        }
+
+        $this->setEmailAddress($emailAddress);
+    }
+
+    /**
      * Set the e-mail address.
      *
      * @param string $emailAddress

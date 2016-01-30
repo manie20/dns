@@ -25,6 +25,16 @@ class Domain
     }
 
     /**
+     * Initate Domain object.
+     *
+     * @param $fqdn
+     */
+    public function __construct($fqdn)
+    {
+        $this->setDomainName($fqdn);
+    }
+
+    /**
      * Set domain name.
      *
      * @param string $fqdn
