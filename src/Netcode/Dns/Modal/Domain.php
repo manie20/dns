@@ -33,7 +33,7 @@ class Domain
      */
     public function setDomainName($fqdn)
     {
-        if (false === $this->validateDomainName($fqdn)) {
+        if (false === $this->validateDomainName($fqdn) && $fqdn !== 'ns') {
             throw new InvalidDomainException(
                 'The domain: ' . $fqdn . ' is not a valid FQDN. Please set a valid DomainName on the Domain class.'
             );

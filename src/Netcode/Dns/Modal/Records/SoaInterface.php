@@ -3,6 +3,7 @@
 namespace Netcode\Dns\Modal\Records;
 
 use \Netcode\Dns\Modal\Domain;
+use Netcode\Dns\Modal\Email;
 
 /**
  * Define the functionality for the SOA (Start of Authority) record class for use in a zone.
@@ -12,6 +13,20 @@ use \Netcode\Dns\Modal\Domain;
  */
 interface SoaInterface
 {
+    /**
+     * Checks if the object has no null attributes.
+     *
+     * @return boolean
+     */
+    public function hasNullFields();
+
+    /**
+     * Get a newly generated serial based on existing SOA record.
+     *
+     * @return int
+     */
+    public function getNewSerial();
+
     /**
      * Set the toplevel domain for this zone. (example.com)
      *
@@ -95,11 +110,11 @@ interface SoaInterface
      * root@ns.nameserver.com, but written as root.ns.nameserver.com .
      * And yes, remember to put the dot behind the domain name.
      *
-     * @param \Netcode\Dns\Modal\Domain $emailAddress
+     * @param Email $emailAddress
      *
      * @return SoaInterface $this
      */
-    public function setEmailAddress(Domain $emailAddress);
+    public function setEmailAddress(Email $emailAddress);
 
     /**
      * Get E-mail address.

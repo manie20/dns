@@ -3,6 +3,7 @@
 namespace Netcode\Dns\Modal\Records;
 
 use Netcode\Dns\Modal\Domain;
+use Netcode\Dns\Modal\Email;
 
 /**
  * SOA (Start of Authority) zone record.
@@ -45,25 +46,19 @@ class SOA implements SoaInterface
     }
 
     /**
-     * Get the zone file data for this record.
+     * Validate the SOA object to see if required attributes are set.
      *
-     * @return string
+     * @return boolean
      */
-    public function getZoneFileData()
+    public function hasNullFields()
     {
-        $rs = '$TTL ' . $this->getTtl() . "\n";
-        $rs .= '@       ';
-        $rs .= $this->getClass() . '      ';
-        $rs .= 'SOA     ';
-        $rs .= $this->getNameServer() . ' ';
-        $rs .= $this->getEmailAddress() . ' (' . "\n";
-        $rs .= '            ' . $this->getSerialNumber() . "\n";
-        $rs .= '            ' . $this->getRefresh() . "\n";
-        $rs .= '            ' . $this->getRetry() . "\n";
-        $rs .= '            ' . $this->getExpiry() . "\n";
-        $rs .= '            ' . $this->getMinimum() . " )\n";
+        foreach ($this as $field => $value) {
+            if (null === $value) {
+                return true;
+            }
+        }
 
-        return $rs;
+        return false;
     }
 
     /**
@@ -181,11 +176,11 @@ class SOA implements SoaInterface
      * root@ns.nameserver.com, but written as root.ns.nameserver.com .
      * And yes, remember to put the dot behind the domain name.
      *
-     * @param \Netcode\Dns\Modal\Domain $emailAddress
+     * @param Email $emailAddress
      *
      * @return SoaInterface $this
      */
-    public function setEmailAddress(Domain $emailAddress)
+    public function setEmailAddress(Email $emailAddress)
     {
         $this->emailAddress = $emailAddress;
 
@@ -230,6 +225,35 @@ class SOA implements SoaInterface
     public function getSerialNumber()
     {
         return $this->serialNumber;
+    }
+
+    /**
+     * Get newly generated serial.
+     *
+     * @return int
+     */
+    public function getNewSerial()
+    {
+        $today = new \DateTime();
+        $dtStamp = $today->format("Ymd");
+
+        if (
+            null === $this->serialNumber ||
+            false === is_numeric($this->serialNumber) ||
+            substr($this->serialNumber, 0, 8) !== $dtStamp
+        ) {
+            return $dtStamp . '01';
+        }
+
+        $rev =  sprintf(
+            '%02d',
+            ((int) substr(
+                $this->serialNumber,
+                8
+            ) + 1)
+        );
+
+        return $dtStamp . $rev;
     }
 
     /**

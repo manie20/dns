@@ -2,9 +2,11 @@
 
 namespace Netcode\Dns\Modal;
 
+use Netcode\Dns\Exception\SoaRequiredException;
 use Netcode\Dns\Modal\Records\RecordInterface;
 use Netcode\Dns\Modal\Records\SoaInterface;
 use Netcode\Dns\Service\ZoneFileService;
+use Netcode\Dns\Exception\SoaMandatoryFieldsException;
 
 /**
  * Zone is any distinct, contiguous portion of the domain name space in the Domain Name System (DNS) for which
@@ -12,6 +14,9 @@ use Netcode\Dns\Service\ZoneFileService;
  */
 class Zone implements ZoneInterface
 {
+    /** string */
+    const SOA_REQUIRED = 'A SOA Record is mandatory for a DNS Zone.';
+
     /** @var array */
     protected $records = array();
 
@@ -22,13 +27,17 @@ class Zone implements ZoneInterface
      * Print the serialized representation of a zone file.
      *
      * @return string
-     *
-     * @throws \Netcode\Dns\Exception\SoaRequiredException
      */
     public function __toString()
     {
-        $zoneFileService = new ZoneFileService();
-        return $zoneFileService->getZoneText($this);
+        try {
+            $zoneFileService = new ZoneFileService();
+
+            return $zoneFileService->getZoneText($this);
+        } catch(SoaRequiredException $e) {
+
+            return self::SOA_REQUIRED;
+        }
     }
 
     /**
@@ -78,9 +87,15 @@ class Zone implements ZoneInterface
      * @param SoaInterface $soa
      *
      * @return ZoneInterface
+     *
+     * @throws SoaMandatoryFieldsException
      */
     public function setSoaRecord(SoaInterface $soa)
     {
+        if (true === $soa->hasNullFields()) {
+            throw new SoaMandatoryFieldsException('The fields in the SOA Object are all mandatory.');
+        }
+
         $this->soa = $soa;
 
         return $this;
