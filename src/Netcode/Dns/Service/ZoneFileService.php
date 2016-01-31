@@ -61,7 +61,7 @@ class ZoneFileService
             $soaRecord->getClass(),
             $soaRecord,
             $soaRecord->getNameServer()->getZonefileNotation(),
-            $soaRecord->getEmailAddress()->getZonefileNotation(),
+            $soaRecord->getEmailAddress(),
             $soaRecord->getSerialNumber(),
             $soaRecord->getRefresh(),
             $soaRecord->getRetry(),

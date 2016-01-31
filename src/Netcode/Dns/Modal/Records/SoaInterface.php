@@ -119,7 +119,7 @@ interface SoaInterface
     /**
      * Get E-mail address.
      *
-     * @return \Netcode\Dns\Modal\Domain
+     * @return \Netcode\Dns\Modal\Email
      */
     public function getEmailAddress();
 
