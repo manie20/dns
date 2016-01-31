@@ -50,13 +50,7 @@ class ZoneFileService
     private function getSoaMarkup(SoaInterface $soaRecord)
     {
         return sprintf(
-            '@ %s %s %s %s %s (' . "\n" .
-            '%s ; serial' . "\n" .
-            '%s ; refresh' . "\n" .
-            '%s ; retry' . "\n" .
-            '%s ; expire' . "\n" .
-            '%s ; minimum' . "\n" .
-            ')' . "\n",
+            '%s %s %s %s %s ( %s %s %s %s %s )' . "\n",
             $soaRecord->getName()->getZonefileNotation(),
             $soaRecord->getClass(),
             $soaRecord,
