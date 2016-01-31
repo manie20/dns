@@ -27,11 +27,13 @@ class Domain
     /**
      * Initate Domain object.
      *
-     * @param $fqdn
+     * @param string|null $fqdn
      */
-    public function __construct($fqdn)
+    public function __construct($fqdn = null)
     {
-        $this->setDomainName($fqdn);
+        if (null !== $fqdn) {
+            $this->setDomainName($fqdn);
+        }
     }
 
     /**

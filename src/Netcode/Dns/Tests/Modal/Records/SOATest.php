@@ -84,43 +84,23 @@ class SOATest extends \PHPUnit_Framework_TestCase
      */
     public function providerTestSoaRecordCreation()
     {
-        $returnSet = array();
-        $build = array(
+        return array(
             array(
-                'domain'     => 'netcode.nl',
-                'email'      => 'tech@netcode.nl',
-                'nameServer' => 'ns'
+                'domain'     => new Domain('netcode.nl'),
+                'email'      => new Email('tech@netcode.nl'),
+                'nameServer' => new Domain('ns')
             ),
             array(
-                'domain'     => 'google.com',
-                'email'      => 'support@google.com',
-                'nameServer' => 'ns1.google.com'
+                'domain'     => new Domain('google.com'),
+                'email'      => new Email('support@google.com'),
+                'nameServer' => new Domain('ns1.google.com')
             ),
             array(
-                'domain'     => 'just-a-domain.com',
-                'email'      => 'help@just-a-domain.com',
-                'nameServer' => 'ns1.myregistrar.com'
+                'domain'     => new Domain('just-a-domain.com'),
+                'email'      => new Email('help@just-a-domain.com'),
+                'nameServer' => new Domain('ns1.myregistrar.com')
             ),
         );
-
-        foreach ($build as $record) {
-            $domain = new Domain();
-            $domain->setDomainName($record['domain']);
-
-            $email = new Email();
-            $email->setEmailAddress($record['email']);
-
-            $nameServer = new Domain();
-            $nameServer->setDomainName($record['nameServer']);
-
-            $returnSet[] = array(
-                $domain,
-                $email,
-                $nameServer
-            );
-        }
-
-        return $returnSet;
     }
 
     /**
