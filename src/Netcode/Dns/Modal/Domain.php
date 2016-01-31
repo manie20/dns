@@ -89,6 +89,10 @@ class Domain
      */
     public function getZonefileNotation()
     {
+        if ('ns' === $this->getDomainName()) {
+            return $this->getDomainName();
+        }
+
         return $this->getDomainName() . '.';
     }
 }
