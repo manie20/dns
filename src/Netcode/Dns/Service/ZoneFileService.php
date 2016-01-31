@@ -85,11 +85,11 @@ class ZoneFileService
 
             $returnString .= sprintf(
                 '%s%s%s%s%s' . "\n",
-                $record->getName(),
-                $record->getTTL(),
-                $record->getClass(),
-                $record->getType(),
-                $record->getContent()
+                str_pad($record->getName(), 25, " "),
+                str_pad($record->getTTL(), 10, " ", STR_PAD_LEFT),
+                str_pad($record->getClass(), 8, " ", STR_PAD_LEFT),
+                str_pad($record->getType(), 10, " ", STR_PAD_LEFT),
+                str_pad($record->getContent(), 25, " ", STR_PAD_LEFT)
             );
         }
 
@@ -106,13 +106,13 @@ class ZoneFileService
     private function getMxMarkup(MX $mxRecord)
     {
         return sprintf(
-            '%s    %s    %s   %s    %s    %s' . "\n",
-            $mxRecord->getName(),
-            $mxRecord->getTTL(),
-            $mxRecord->getClass(),
-            $mxRecord->getType(),
-            $mxRecord->getPriority(),
-            $mxRecord->getContent()
+            '%s%s%s%s%s%s' . "\n",
+            str_pad($mxRecord->getName(), 25, " "),
+            str_pad($mxRecord->getTTL(), 10, " ", STR_PAD_LEFT),
+            str_pad($mxRecord->getClass(), 8, " ", STR_PAD_LEFT),
+            str_pad($mxRecord->getType(), 10, " ", STR_PAD_LEFT),
+            str_pad($mxRecord->getPriority(), 8, " ", STR_PAD_LEFT),
+            str_pad($mxRecord->getContent(), 25, " ", STR_PAD_LEFT)
         );
     }
 }
