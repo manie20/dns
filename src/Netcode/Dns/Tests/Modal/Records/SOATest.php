@@ -2,11 +2,11 @@
 
 namespace Netcode\Dns\Tests\Modal\Records;
 
-use \Netcode\Dns\Modal\Records\SoaInterface;
-use \Netcode\Dns\Modal\Records\SOA;
-use \Netcode\Dns\Modal\Domain;
-use \Netcode\Dns\Modal\Zone;
-use \Netcode\Dns\Modal\Email;
+use Netcode\Dns\Modal\Records\SoaInterface;
+use Netcode\Dns\Modal\Records\SOA;
+use Netcode\Dns\Modal\Domain;
+use Netcode\Dns\Modal\Zone;
+use Netcode\Dns\Modal\Email;
 
 /**
  * Unit Test for DNS SOA Record.

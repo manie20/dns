@@ -40,6 +40,25 @@ interface RecordInterface
     public function getType();
 
     /**
+     * Set CLASS.
+     *
+     * Class – IN – The class shows the type of record. IN equates to Internet. Other options are all historic.
+     * So as long as your DNS is on the Internet or Intranet, you must use IN.
+     *
+     * @param string $class
+     *
+     * @return SoaInterface $this
+     */
+    public function setClass($class = 'IN');
+
+    /**
+     * Get CLASS.
+     *
+     * @return string
+     */
+    public function getClass();
+
+    /**
      * Set record content.
      *
      * @param string $content

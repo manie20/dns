@@ -14,6 +14,9 @@ class BaseRecord implements RecordInterface
     protected $type;
 
     /** @var string */
+    protected $class = 'IN';
+
+    /** @var string */
     protected $content;
 
     /** @var int */
@@ -80,6 +83,33 @@ class BaseRecord implements RecordInterface
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set CLASS.
+     *
+     * Class – IN – The class shows the type of record. IN equates to Internet. Other options are all historic.
+     * So as long as your DNS is on the Internet or Intranet, you must use IN.
+     *
+     * @param string $class
+     *
+     * @return RecordInterface $this
+     */
+    public function setClass($class = 'IN')
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get CLASS.
+     *
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 
     /**
