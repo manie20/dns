@@ -38,6 +38,14 @@ class BaseRecord implements RecordInterface
     }
 
     /**
+     * Construct.
+     */
+    public function __construct()
+    {
+        $this->type = (string) $this;
+    }
+
+    /**
      * Set record name.
      *
      * @param $name

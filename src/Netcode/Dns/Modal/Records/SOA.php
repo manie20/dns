@@ -46,6 +46,14 @@ class SOA implements SoaInterface
     }
 
     /**
+     * Construct.
+     */
+    public function __construct()
+    {
+        $this->type = (string) $this;
+    }
+
+    /**
      * Validate the SOA object to see if required attributes are set.
      *
      * @return boolean
