@@ -90,7 +90,7 @@ class ZoneFileService
             }
 
             $returnString .= sprintf(
-                '%s    %s    %s   %s    %s    %s' . "\n",
+                '%s    %s    %s   %s    %s' . "\n",
                 $record->getName(),
                 $record->getTTL(),
                 $record->getClass(),
