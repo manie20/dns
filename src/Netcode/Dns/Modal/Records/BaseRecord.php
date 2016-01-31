@@ -141,8 +141,7 @@ class BaseRecord implements RecordInterface
      */
     public function getContent()
     {
-        echo 'getter called';
-        $this->content;
+        return $this->content;
     }
 
     /**
