@@ -46,6 +46,8 @@ class Email
         if (null !== $emailAddress) {
             if (true === $this->isValidDnsEmail($emailAddress)) {
                 $emailAddress = $this->getRegularEmailFromDnsEmail($emailAddress);
+            } else if (true === $this->isValidRegularEmail($emailAddress)) {
+                throw new InvalidEmailException();
             }
 
             $this->setEmailAddress($emailAddress);
